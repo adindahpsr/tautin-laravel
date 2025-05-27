@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShortLinkController;
 use App\Http\Controllers\OneTimeLinkController;
 use App\Http\Controllers\SelfDestructMessageController;
-use Illuminate\Support\Facades\Artisan;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -69,12 +68,6 @@ Route::get('/self-destruct', function () {
 Route::post('/self-destruct', [SelfDestructMessageController::class, 'store'])->name('self-destruct.store');
 
 /**
-
-
-Route::get('/run-migrate', function () {
-    Artisan::call('migrate', ['--force' => true]);
-    return "Migrasi selesai! Jangan lupa hapus route ini setelahnya ya!";
-});
  * Tampilkan pesan yang bisa hancur sendiri setelah dibuka
  * Controller: SelfDestructMessageController@show
  */
