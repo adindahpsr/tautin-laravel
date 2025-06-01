@@ -27,7 +27,7 @@
                         <label for="encrypt_link">Enkripsi URL</label>
                     </div>
                     
-                    <input type="submit" id="btn" data-action="https://tautin.up.railway.app//one-link" value="Generate!">
+                    <input type="submit" id="btn" data-action="https://tautin.up.railway.app/one-link" value="Generate!">
                 </div>
             </form>
 
