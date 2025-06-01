@@ -22,7 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
         getLinkBtn.addEventListener("click", function (e) {
             e.preventDefault();
 
-            const url = shortLinkForm.getAttribute("action");
+            // Ensure the URL uses HTTPS
+            let url = shortLinkForm.getAttribute("action");
+            if (url.startsWith("http://")) {
+                url = url.replace("http://", "https://");
+            }
+
             const data = $(shortLinkForm).serialize();
 
             $.ajax({
