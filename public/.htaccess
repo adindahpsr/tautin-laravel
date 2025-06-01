@@ -6,12 +6,12 @@
     RewriteEngine On
 
     # Handle Authorization Header
-    RewriteCond %{https:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{https:Authorization}]
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
     # Handle X-XSRF-Token Header
-    RewriteCond %{https:x-xsrf-token} .
-    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{https:X-XSRF-Token}]
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
 
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d

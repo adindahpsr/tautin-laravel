@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <input type="submit" id="btn" data-action="/generate-shorten-link" value="Generate!">
+                    <input type="submit" id="btn" data-action="https://tautin.up.railway.app/generate-shorten-link" value="Generate!">
                 </div>
             </form>
 
