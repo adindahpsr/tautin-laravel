@@ -30,7 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 url: url,
                 data: data,
                 headers: {
-                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                        "content"
+                    ),
                 },
                 success: function (response) {
                     if (response.link) {
@@ -42,16 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
                             qrImage.src = response.qr_code;
                             qrImage.classList.remove("hidden");
                             qrImage.style.opacity = "0";
-                            setTimeout(() => { qrImage.style.opacity = "1"; }, 10);
+                            setTimeout(() => {
+                                qrImage.style.opacity = "1";
+                            }, 10);
                         }
 
                         if (downloadQrBtn && response.qr_code) {
                             downloadQrBtn.classList.remove("hidden");
                         }
 
-                        $('html, body').animate({
-                            scrollTop: $("#output").offset().top - 100
-                        }, 500);
+                        $("html, body").animate(
+                            {
+                                scrollTop: $("#output").offset().top - 100,
+                            },
+                            500
+                        );
 
                         showToast("Tautan berhasil dibuat!", "#90C67C");
                     } else {
@@ -59,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 },
                 error: function (xhr) {
-                    console.log('XHR error:', xhr);
+                    console.log("XHR error:", xhr);
                     let message = "Terjadi kesalahan, coba lagi!";
                     if (xhr.responseJSON?.message) {
                         message = xhr.responseJSON.message;
@@ -70,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         } catch (_) {}
                     }
                     handleError(message);
-                }
+                },
             });
         });
     }

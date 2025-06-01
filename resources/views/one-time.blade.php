@@ -13,7 +13,7 @@
         </div> 
 
         <div class="content form-box" data-aos="fade-up" data-aos-delay="200">
-            <form id="form-data" action="{{ route('one-time-link.store') }}" method="POST">
+            <form id="form-data" action="https://tautin.up.railway.app/one-link" method="POST">
                 @csrf
                 <div class="input-area">
                     <label for="input">Tautan Asli</label>

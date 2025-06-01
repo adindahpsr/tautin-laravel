@@ -65,7 +65,7 @@ Route::get('/self-destruct', function () {
  * Proses simpan pesan rahasia (POST dari form)
  * Controller: SelfDestructMessageController@store
  */
-Route::post('/self-destruct', [SelfDestructMessageController::class, 'store'])->name('self-destruct.store');
+Route::post('/self-destructs', [SelfDestructMessageController::class, 'store'])->name('self-destruct.store');
 
 /**
  * Tampilkan pesan yang bisa hancur sendiri setelah dibuka
