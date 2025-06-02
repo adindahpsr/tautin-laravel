@@ -39,22 +39,25 @@ class SelfDestructMessageController extends Controller
      */
     public function show($code)
     {
-        // Cari pesan berdasarkan kode
         $message = SelfDestructMessage::where('code', $code)->first();
 
-        // Kalau nggak ketemu, tampilkan pesan error
+        // If the message doesn't exist, show an error
         if (!$message) {
-            return view('self-destruct-message', ['message' => 'Pesan tidak ditemukan atau sudah dihapus.']);
+            return view('self-destruct-message', ['message' => 'Message not found or already deleted.']);
         }
 
-        // Dekripsi pesan
-        $decryptedMessage = decrypt($message->message);
+        try {
+            // Decrypt the message
+            $decryptedMessage = decrypt($message->message);
 
-        // Tampilkan pesan yang sudah didekripsi ke user
-        $view = view('self-destruct-message', ['message' => $decryptedMessage]);
+            // Delete the message after retrieval
+            $message->delete();
 
-        $message->delete();
-
-        return $view;
+            // Display the decrypted message
+            return view('self-destruct-message', ['message' => $decryptedMessage]);
+        } catch (\Exception $e) {
+            // If decryption fails or any other error occurs, don't delete the message
+            return view('self-destruct-message', ['message' => 'An error occurred while retrieving the message.']);
+        }
     }
 }
