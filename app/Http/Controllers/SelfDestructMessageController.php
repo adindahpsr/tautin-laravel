@@ -50,10 +50,11 @@ class SelfDestructMessageController extends Controller
         // Dekripsi pesan
         $decryptedMessage = decrypt($message->message);
 
-        // Hapus pesan dari database setelah dibaca
+        // Tampilkan pesan yang sudah didekripsi ke user
+        $view = view('self-destruct-message', ['message' => $decryptedMessage]);
+
         $message->delete();
 
-        // Tampilkan pesan yang sudah didekripsi ke user
-        return view('self-destruct-message', ['message' => $decryptedMessage]);
+        return $view;
     }
 }
