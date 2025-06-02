@@ -14,7 +14,7 @@
         </div>
 
         <div class="content form-box" data-aos="fade-up" data-aos-delay="200">
-            <form id="form-data" action="https://tautin.up.railway.app/generate-shorten-link" method="POST">
+            <form id="form-data" action="{{ route('shorten.store') }}" method="POST">
                 @csrf
                 <div class="input-area">
                     <label for="input">Tautan Asli</label>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <input type="submit" id="btn" data-action="https://tautin.up.railway.app/generate-shorten-link" value="Generate!">
+                    <input type="submit" id="btn" data-action="/generate-shorten-link" value="Generate!">
                 </div>
             </form>
 

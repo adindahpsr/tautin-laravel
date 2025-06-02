@@ -12,7 +12,7 @@
     </div>
     
     <div class="content form-box" data-aos="fade-up" data-aos-delay="200">
-        <form id="message-form" action="https://tautin.up.railway.app/self-destructs" method="POST" class="form-wrapper">
+        <form id="message-form" action="{{ route('self-destruct.store') }}" method="POST" class="form-wrapper">
             @csrf
             <label for="message" class="form-label">Pesan Rahasia</label>
             <textarea id="message" name="message" class="form-textarea" placeholder="Tulis pesan rahasiamu di sini..." required></textarea>

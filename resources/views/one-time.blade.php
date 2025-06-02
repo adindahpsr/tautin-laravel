@@ -8,12 +8,12 @@
             <h1>One-Time Link</h1>
             <p data-aos="fade-up" data-aos-delay="100">
                 Tautan hanya bisa diakses satu kali. Setelah dibuka, tautan akan otomatis kedaluwarsa dan tidak dapat digunakan 
-                kembali. Fitur ini cocok ntuk berbagi informasi sensitif yang hanya perlu dilihat satu kali.
+                kembali. Fitur ini cocok untuk berbagi informasi sensitif yang hanya perlu dilihat satu kali.
             </p>
         </div> 
 
         <div class="content form-box" data-aos="fade-up" data-aos-delay="200">
-            <form id="form-data" action="https://tautin.up.railway.app/one-link" method="POST">
+            <form id="form-data" action="{{ route('one-time-link.store') }}" method="POST">
                 @csrf
                 <div class="input-area">
                     <label for="input">Tautan Asli</label>
@@ -27,7 +27,7 @@
                         <label for="encrypt_link">Enkripsi URL</label>
                     </div>
                     
-                    <input type="submit" id="btn" data-action="https://tautin.up.railway.app/one-link" value="Generate!">
+                    <input type="submit" id="btn" data-action="/one-link" value="Generate!">
                 </div>
             </form>
 
